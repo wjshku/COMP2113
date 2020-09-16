@@ -1,0 +1,12 @@
+drwxr-xr-x 8 wangjunshi wangjunshi 4096 9月  10 11:47 Desktop
+drwxr-xr-x 6 wangjunshi wangjunshi 4096 8月  17 13:25 Documents
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 9月  10 10:29 Downloads
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 1月  30  2020 Music
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 8月  21 10:19 node_modules
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 8月  27 23:37 Pictures
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 1月  30  2020 Public
+drwxr-xr-x 3 wangjunshi wangjunshi 4096 11月  1  2019 snap
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 1月  30  2020 Templates
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 1月  30  2020 Videos
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 9月  10 10:47 下载
+drwxr-xr-x 2 wangjunshi wangjunshi 4096 1月  30  2020 桌面
