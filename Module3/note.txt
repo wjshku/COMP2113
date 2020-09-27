@@ -1,0 +1,4 @@
+1.Type Conversions
+lower type prompted to higher type: int 2 will be prompted to double 2.0
+In assignment statements the value of the right side is converted to the type of the left: double x = 5 => x will be 5.0
+
