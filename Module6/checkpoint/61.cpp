@@ -1,8 +1,21 @@
 #include<iostream>
 using namespace std;
+
+void e(int a[],int b[], int c[],int d){
+	for(int index = d-1; index >= 0; index--){
+		a[index]=2;
+		b[index]=3;
+		c[index]=4;
+	}
+	for (int i = 0;i<d;i++){
+		cout<<a[i]<<" "<<b[i]<<" "<<c[i]<<" ";
+	}
+}
+
 int main(){
-	double a[2][2] = {{2,3},{3,2}};
-	double b[1][2] = {{3}};
-	char c[1000] = "string";
-	cout<<c[2]<< c[10];
+	int a[] = {1,2,3};
+	int b[] = {3,4,5};
+	int c[] = {5,6,7};
+	e(a,b,c,5);
+	
 }
