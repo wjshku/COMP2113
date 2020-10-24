@@ -1,0 +1,4 @@
+This is the first line.
+这是第二行。
+good bye
+再见
