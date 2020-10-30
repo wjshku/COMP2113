@@ -2,6 +2,9 @@
 using namespace std;
 char CaesarShift(char c,int k){
 	if((c<='Z'&&c>='A')||(c<='z'&&c>='a')){
+		while(k<0){
+			k += 26;
+		}
                 if((c-'A')/26){
 
                         c = 'A'+(c-'a'+k+26)%26;
