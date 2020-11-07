@@ -1,0 +1,4 @@
+assign.cpp: In function ‘int main()’:
+assign.cpp:8:1: error: expected ‘;’ before ‘}’ token
+ }
+ ^

@@ -13,8 +13,54 @@ using namespace std;
 // return 1 otherwise
 int SearchWord(string word, string fn, int &nLines, int &total)
 {
+	string line;
+	int start,
+	    pos,
+	    temp = 0; //in order to find all words in a line
 
-  return 0;
+	ifstream fin;
+	fin.open(fn.c_str());
+	if ( fin.fail() ){
+	//	cout << "Error in file opening!"<< endl;
+ 		return 1;
+ 	}
+	
+	nLines = 0;
+	total = 0;
+
+	for(int i = 0; i<word.length();i++){ //transform word to lowercase
+                        word[i] = tolower(word[i]);
+                }
+
+	//cout<<"need to find: "<<word<<endl;
+	while(getline(fin,line)){
+		start = 0;
+		//cout<<line<<endl;
+		for(int i = 0; i<line.length();i++){ //transform to lowercase
+			line[i] = tolower(line[i]);
+		}
+
+		
+		while(line.find(word,start)!=-1){
+			pos = line.find(word,start);
+                        start = line.find(word,start) + word.length();
+			if(pos ==0 && line[pos + word.length()] == ' '){
+				temp++;
+                                //cout<<"in front"<<endl;
+                        }else if(pos + word.length() == line.length() && line[pos - 1] == ' '){
+			       	temp++;
+                                //cout<<"in the end"<<endl;
+                        }else if(line[pos - 1] == ' '&& line[pos + word.length()] == ' '){
+				temp++;
+                                //cout<<"in middle"<<endl;
+			}
+		}
+		if(temp > 0) nLines++;
+		total += temp;
+		temp = 0;
+	}
+	fin.close();
+	return 0;
 }
 
 

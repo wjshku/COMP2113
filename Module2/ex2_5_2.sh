@@ -1,4 +1,4 @@
 #!/bin/bash
 a="Apple Pie"
-echo ${a:6:3}
+echo ${a[3]}
 

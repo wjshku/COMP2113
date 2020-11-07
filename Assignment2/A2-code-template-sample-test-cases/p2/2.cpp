@@ -35,7 +35,8 @@ void ReadPointSet() {
   void ReadRectangle() {
     // --- YOUR CODE HERE (Task 1) ---
       double x,y,width,height;
-      cin>>x>>y>>width>>height;
+      cin >> x >> y>> width >> height;
+
       min[X] = min[Y] = numeric_limits<double>::max();
       max[X] = max[Y] = numeric_limits<double>::lowest();
       if (x-width/2 < min[X]) min[X] = x-width/2;
@@ -49,7 +50,7 @@ void ReadPointSet() {
   void ReadCircle() {
     // --- YOUR CODE HERE (Task 1) ---
     double x,y,radius;
-    cin>>x>>y>>radius;
+    cin>> x >> y >> radius;
     min[X] = min[Y] = numeric_limits<double>::max();
     max[X] = max[Y] = numeric_limits<double>::lowest();
     if (x-radius < min[X]) min[X] = x-radius;
@@ -64,23 +65,19 @@ void ReadPointSet() {
 //        false otherwise
 bool IsOverlap(AABB p, AABB q) {
   // --- YOUR CODE HERE (Task 3) ---
-  if((p.min[0]<=q.min[0]&&q.min[0]<=p.max[0])||(p.min[0]<=q.max[0])&&(q.max[0]<=p.max[0])){
-	// cout<<"X "<<p.min[0]<<" "<<q.min[0]<<" "<<p.max[0]<<" "<<p.min[0]<<" "<<q.max[0]<<" "<<p.max[0]<<endl;
+  if((p.min[0]<=q.min[0]&&q.min[0]<=p.max[0])||(p.min[0]<=q.max[0])&&(q.max[0]<=p.max[0])){ // Conditions of overlap
+
 	  if((p.min[1]<=q.min[1])&&(q.min[1]<=p.max[1])||(p.min[1]<=q.max[1])&&(q.max[1]<=p.max[1])){
-		  //cout<<"Y "<<p.min[1]<<" "<<q.min[1]<<" "<<p.max[1]<<" "<<p.min[1]<<" "<<q.max[1]<<" "<<p.max[1]<<endl;
 		  return true;
 	  }
   }
   if((q.min[0]<=p.min[0]&&p.min[0]<=q.max[0])||(q.min[0]<=p.max[0])&&(p.max[0]<=q.max[0])){
-	  //cout<<((q.min[0]<p.min[0]&&p.min[0]<q.max[0])||(q.min[0]<p.max[0])&&(p.max[0]<q.max[0]))<<endl;
-         //cout<<"X "<<q.min[0]<<" "<<p.min[0]<<" "<<q.max[0]<<" "<<q.min[0]<<" "<<p.max[0]<<" "<<q.max[0]<<endl;
+	  
 	  if((q.min[1]<=p.min[1])&&(p.min[1]<=q.max[1])||(q.min[1]<=p.max[1])&&(p.max[1]<=q.max[1])){
-		 // cout<<"Y "<<q.min[1]<<" "<<p.min[1]<<" "<<q.max[1]<<" "<<q.min[1]<<" "<<p.max[1]<<" "<<q.max[1]<<endl;
 		  return true;
 	  }
   }
   return false;
-
 }
 
 
@@ -88,7 +85,8 @@ int main()
 {
   char type;
 
-  int overlap[MAXGEOM] = {0};
+  int overlap[MAXGEOM] = {0};//array stores whether AABB is isolated.
+
 
   AABB boxes[MAXGEOM];
 
@@ -132,17 +130,16 @@ int main()
   // for each AABB, if it does not overlap with any other AABBs, display its ID
   // --- YOUR CODE HERE (Task 4) ---
   for(int i = 0; i<numBoxes;i++){
-		  for(int j = i+1; j<numBoxes;j++){
+		  for(int j = i + 1; j < numBoxes;j++){
 			  if(IsOverlap(boxes[i],boxes[j])){
-				  overlap[i] = 1;
+				  overlap[i] = 1; //if overlap, then set overlap[i] to 1
 				  overlap[j] = 1;
-				  //cout<<i<<" "<<j<<endl;
 			  }
 		  }
   }
   for(int i = 0; i<numBoxes;i++){
-	  if(overlap[i]==0){
-		  cout<<"0"<<i<<endl;
+	  if(overlap[i] == 0){
+		  cout << "0" << i << endl;
 	  }
   }
   return 0;
