@@ -127,7 +127,7 @@ void input_num(char * & digits, int & numDigits)
 Node * create_num_list()
 {
     // TASK 1a: declare a pointer pointing to the head of the link list
-
+    Node * head = NULL;
 
 
     string str;
@@ -147,8 +147,8 @@ Node * create_num_list()
             val = atoi(str.c_str());
 
             // TASK 1b: insert a value as a node to the head of the linked list
-
-
+	    head_insert(head,val);
+	    	
 
 
             str.clear();
@@ -160,7 +160,7 @@ Node * create_num_list()
         val = atoi(str.c_str());
 
         // TASK 1c: insert a value as a node to the head of the linked list
-
+	head_insert(head,val);
 
 
     }
@@ -172,7 +172,7 @@ Node * create_num_list()
     }
 
     // TASK 1d: return the pointer to the linked list
-
+    return head;
 
 }
 
@@ -183,16 +183,16 @@ int list_length(Node * head)
 {
  	// TASK 3: Modify this print function to one that
 	// count the number of nodes in a linked list
-
+    int length = 0;
     Node * current = head;
     while (current != NULL)
     {
         // process the current node, e.g., print the content
-        cout << current->value << " -> ";
+        length++;
         current = current->next;
     }
 
-    cout << "NULL\n";
+    return length;
 }
 
 // return if the number n1 is larger than n2
@@ -203,9 +203,10 @@ bool larger(Node * n1, Node * n2)
 
 	// TASK 4a: handle the case
 	// when the list lengths are different
-
-
-
+    if(len1 > len2)
+	    return true;
+    else if(len1 < len2)
+	    return false;
 
     // the two lists are of equal length
 
@@ -219,8 +220,8 @@ bool larger(Node * n1, Node * n2)
 
         // TASK 4b: advance curr1, curr2
 		// to point to the next nodes
-
-
+        curr1 = curr1->next;
+	curr2 = curr2->next;
 
 
     }
@@ -241,8 +242,8 @@ int main()
     n2 = create_num_list();
 
     // TASK 2: call print_list() on n1 and n2 for checking
-
-
+    print_list(n1);
+    print_list(n2);
 
 
     if (larger(n1, n2)) {
@@ -257,7 +258,8 @@ int main()
     }
 
     // TASK 5: free the linked lists
-
+    delete_list(n1);
+    delete_list(n2);
 
 
 

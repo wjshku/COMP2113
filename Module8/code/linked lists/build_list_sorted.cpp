@@ -49,13 +49,27 @@ Node * find_prev( Node * head, int num )
 	Node * current = head;
 
 	while (current->next != NULL) {
-		if (current->next->info >= num)
+	//	  cout<<"Current "<<current->next->info<<endl;
+
+		if (current->next->info >= num){
 			return current;
+		}
 		else
 			current = current->next;
 	}
 
 	return current;
+}
+
+Node * get_item(Node * head,int k){
+	Node * current = head;
+	for(int i = 0; i < k;i++){
+		current = current->next;
+		if(current == NULL)
+			return NULL;
+	}
+	return current;
+
 }
 
 Node * find( Node * head, int num )
@@ -93,7 +107,7 @@ void delete_node( Node * after)
 int get_option()
 {
     int c;
-    cout << endl << "enter option (1: insert; 2: delete; 0: quit) ";
+    cout << endl << "enter option (1: insert; 2: delete; 3: reverse; 4: get kth item; 5: sublist; 0: quit) ";
     cin >> c;
     return c;
 }
@@ -105,10 +119,14 @@ void option_insert(Node * & head)
     cin >> num;
 
     Node * after_this = find_prev(head, num);
-    if (after_this == NULL)
-		head_insert(head, num);
-	else
+    if (after_this == NULL){
+    	//	cout<<"head insert"<<endl;	    
+	        head_insert(head, num);
+    }
+	else{
+	//	cout<<"insert after"<<endl;
 		insert(after_this, num);
+	}
 }
 
 void option_delete(Node * & head)
@@ -132,6 +150,40 @@ void option_delete(Node * & head)
     }
 }
 
+void option_divide(Node * & head, Node * & second){
+	Node * current = head;
+	int length = 0;
+	while(current != NULL){
+		length++;
+		current = current->next;
+	}
+	length = length/2;
+	second = head;
+	for(int i= 0; i<length; i++){
+		second = second->next;
+		//cout<<"second "<<second->info<<endl;
+	}
+	current = second;
+	second = second->next;
+	current->next = NULL;
+}
+
+void option_reverse(Node * & head){
+	Node * temp = new Node;
+	Node * before = head;
+	temp = NULL;
+	head = head->next;
+	before->next = temp;
+	while(head != NULL){
+		temp = before;
+		before = head;
+		head = head->next;
+		before->next = temp;
+	}
+	head = before;	
+}
+
+
 void delete_list(Node * & head)
 {
     while ( head != NULL )
@@ -143,7 +195,7 @@ void delete_list(Node * & head)
 
 int main()
 {
-    Node * head = NULL, * after_this;
+    Node * head = NULL, * after_this, * second;
     int num = 0;
 
     // build sorted linked list
@@ -170,13 +222,36 @@ int main()
         case 1:
             // insert a node
             option_insert(head);
-            break;
+            print_list(head);
+
+	    break;
         case 2:
             // delete a node
             option_delete(head);
-            break;
+            print_list(head);
+	    break;
+	case 3:
+	    //reverse
+	    option_reverse(head);
+	    print_list(head);
+	    break;
+	case 4:
+	    //get item
+	    int k;
+	    cout<<"Input the item you want to find: ";
+	    cin>>k;
+	    //Node * p = get_item(head,k);
+	    if(get_item(head,k) != NULL)
+		    cout<< get_item(head,k)->info<<endl;
+	    else
+		    cout<< "Item does not exist."<<endl;
+	    break;
+	case 5:
+	    option_divide(head,second);
+	    print_list(head);
+	    print_list(second);
+	    break;
         }
-        print_list(head);
     }
 
     delete_list(head);
