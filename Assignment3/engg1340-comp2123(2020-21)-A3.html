@@ -1,0 +1,576 @@
+<!DOCTYPE html><html><head>
+      <title>engg1340-comp2123(2020-21)-A3</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/ykchoi/.atom/packages/markdown-preview-enhanced/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <style type="text/css">
+pre {
+  background-color: #f5f5f5;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+pre.hljs code > div {
+	padding: 8px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre:not(.hljs) {
+	padding: 10px;
+	line-height: 19px;
+}
+
+</style>
+<h1 class="mume-header" id="engg1340-comp2113-assignment-3">ENGG1340 / COMP2113, Assignment 3</h1>
+
+<p><strong>Due Date: Nov 30, 2020 23:59</strong></p>
+<p>If you have any questions, please post to the Moodle discussion forum on Assignment 3.</p>
+<ul>
+<li><a href="#instructions">General Instructions</a></li>
+<li><a href="#p1">Problem 1: Game of Elimination in C++</a> (45 marks)</li>
+<li><a href="#p2">Problem 2: STL - Log Analyzer</a> (50 marks)</li>
+</ul>
+<p>Total marks: 100 marks</p>
+<ul>
+<li>5 marks for proper code comments, indentation and use of functions</li>
+<li>95 marks for program correctness</li>
+</ul>
+<hr>
+<h1 class="mume-header" id="a-nameinstructionsa-general-instructions"><a name="instructions" href></a> General Instructions</h1>
+
+<p>Read the instructions in this document carefully.</p>
+<p>In this assignment you will solve 2 tasks and a tester would automatically test your submitted program.  So if your submitted files and program outputs do not conform to our instructions given here, your programs cannot be evaluated and you will risk losing marks totally.</p>
+<p>Sample test cases are provided with each task in this document. Note that the test cases may or may not cover all boundary cases for the problem.  It is also part of the assessment whether you are able to design proper test cases to verify the correctness of your program. We will also use additional test cases when marking your assignment submission.</p>
+<h2 class="mume-header" id="input-and-output-format">Input and output format</h2>
+
+<p>Your C++ programs should read from the <strong>standard input</strong>. Also, your program output should be printed through the <strong>standard output</strong>. If you failed to follow the instructions, the tester may not able to give a score for your program. Additionally, you should strictly follow the sample output format (including space, line breaker, etc.), otherwise, your answer might be considered as wrong.</p>
+<h2 class="mume-header" id="how-to-use-the-sample-test-cases">How to use the sample test cases</h2>
+
+<p>Sample test cases in text file formats are made available for you to check against your work.  Here&apos;s how you may use the sample test cases.  Take Problem 2 test case 3 as an example. The sample input and the expected output are given in the files <code>input2_3.txt</code> and <code>output2_3.txt</code>, respectively.  Suppose that your program is named &quot;2&quot;, do the followings at the command prompt of the terminal to check if there is any difference between your output and the expected output.</p>
+<pre data-role="codeBlock" data-info="text" class="language-text"><code>./2 &lt; input2_3.txt &gt; myoutput.txt
+diff myoutput.txt output2_3.txt
+</code></pre><p><strong>Testing against the sample test cases is important to avoid making formatting mistakes.</strong> The additional test cases for grading your work will be of the same formats as given by the sample test cases.</p>
+<h2 class="mume-header" id="coding-environment">Coding environment</h2>
+
+<p>You must make sure that your program can compile, execute and generate the required outputs on our standard environment, namely, the gcc C++11 environment we have on the CS Linux servers (academy*). As a programmer/developer, you should always ensure that your code can work perfectly as expected on a target (e.g., your client&apos;s) environment, not only on yours.</p>
+<p>While you may develop your work on your own environment, you should always try your program (compile &amp; execute &amp; check results) on our standard environment before submission.</p>
+<p>Make sure the following compilation command is used to compile your programs:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>g++ -pedantic-errors -std=c++11 [yourprogram].cpp
+</code></pre><h2 class="mume-header" id="submission">Submission</h2>
+
+<p>Name your C++ programs as the following table shows and put them together into one directory. Make sure that the folder contains only these source files (<code>*.cpp</code>) and no other files. <strong>Compress this directory as a <code>[uid].zip</code> file where [uid] is your university number</strong> and check carefully that the correct file have been submitted. We suggest you to download your submitted file from Moodle, extract them, and check for correctness.  Resubmission after the deadline is not allowed.</p>
+<p>A maximum of 5 marks will be deducted if you fail to follow the submission instructions strictly.</p>
+<p>Note that code template for Problem 2 is provided, and you should base your work on it.</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Code files provided?</th>
+<th>Files to Submit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Create your own <code>1.cpp</code></td>
+<td><code>1.cpp</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>2.cpp</code></td>
+<td><code>2.cpp</code></td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="late-submission">Late submission</h2>
+
+<p>If submit within 3 days after the deadline, 50% deduction. After that, no mark.</p>
+<h2 class="mume-header" id="evaluation">Evaluation</h2>
+
+<p>Your code will be auto-graded for technical correctness.  In principle, we use test cases to benchmark your solution, and you may get zero marks for not being able to pass any of the test cases.  Normally partial credits will not be given for incomplete solution, as in many cases the logic of the programs are not complete and an objective assessment could be difficult.  However, your work may still be considered on a case-by-case basis during the rebuttal stage.</p>
+<h2 class="mume-header" id="academic-dishonesty">Academic dishonesty</h2>
+
+<p>We will be checking your code against other submissions in the class and from the Internet for logical redundancy. Please be reminded that no matter whether it is providing your work to others, assisting others to copy, or copying others will all be considered as committing plagiarism and we will follow the departmental policy to handle such cases. Please refer to the course information notes for details.</p>
+<h2 class="mume-header" id="discussion-forum">Discussion forum</h2>
+
+<p>You are not alone! If you find yourself stuck on something, post your question to the course forum. We want this assignment to be rewarding and instructional, not frustrating and demoralizing. But we don&#x2019;t know when or how to help unless you ask.</p>
+<p><strong>Please be careful not to post spoilers.</strong> Please don&#x2019;t post any code that is directly related to the assignments. However you are welcome and encouraged to discuss general ideas on the discussion forums. If you have any questions about this assignment you should post them in the discussion forums.</p>
+<hr>
+<h1 class="mume-header" id="a-namep1a-problem-1-game-of-elimination-in-c"><a name="p1" href></a> Problem 1: Game of Elimination in C++</h1>
+
+<p>Consider a prize to be awarded to a winner among n &gt; 0 contestants by a game of elimination.  The n contestants first line up in a line, and are assigned the numbers 1 to n one by one.</p>
+<p>The host of the game then decides on an integer k &gt; 1, and starting from contestant 1, the host counts k contestants down the line and eliminates the k-th contestants from the circle.  He then continues to count for another k contestants, and eliminates the k-th contestants from the line.  When he counts to the end of line, he will continue counting from the beginning of the line.  This process repeats until there is only one contestant remains who will be the winner of the prize.</p>
+<p>For example, if n = 7 and k = 3,<br>
+The initial line:  1234567, count to 3 and contestant 3 is eliminated<br>
+Line now becomes: 124567, continue counting from 4 and contestant 6 is eliminated<br>
+Line now becomes: 12457, continue counting from 7 and contestant 2 is eliminated<br>
+Line now becomes 1457, continue counting from 4 and contestant 7 is eliminated<br>
+Line now becomes 145, continue counting from 1 and contestant 5 is eliminated<br>
+Line now becomes 14, continue counting from 1 and contestant 1 is eliminated<br>
+Winner is contestant 4</p>
+<p>Write a <strong>C++ program</strong> which implements a circular linked list (see Module 8 Guidance Notes p.92) to determine which contestant will win the prize.</p>
+<p><strong>Program input.</strong>  Two input numbers n and k (n &gt; 0 and k &gt; 1).</p>
+<p><strong>Program output.</strong> The winner of the game.</p>
+<p><strong>Requirement:</strong>  You will need to implement the circular linked list on your own, i.e., you may NOT use any STL containers or external linked list libraries.</p>
+<p><strong>Idea:</strong></p>
+<ul>
+<li>Use the program <code>build_list_forward.cpp</code> of Module 8 as a basis for your work.  The program essentially has built a linked list; to turn it into a circular linked list, you just need to point the next pointer of the last node to the head of the list.</li>
+<li>You will need to build a circular linked list containing the numbers 1 to n</li>
+<li>You will then need to traverse through the linked list and remove a node once you have traversed for k nodes.</li>
+<li>After removing a node, you should check if there remains only one node in the list.  If yes, the winner is identified.</li>
+<li>Remember to free all memories used by the linked list before the program terminates.</li>
+</ul>
+<p><strong>Hint:</strong></p>
+<ul>
+<li>Study carefully <code>build_list_forward.cpp</code> and <code>build_list_sorted.cpp</code> of Module 8.  They should contain the main building blocks for you to finish this task.</li>
+<li>It is expected that you will only need to write no more than 20-30 lines of additional code, after reusing the appropriate codes in <code>build_list_forward.cpp</code> and <code>build_list_sorted.cpp</code>.  Of course, it is OK if you write more than that.</li>
+</ul>
+<h2 class="mume-header" id="sample-test-cases">Sample Test Cases</h2>
+
+<p>User inputs are shown in <font color="blue">blue</font>.</p>
+<p>1_1:</p>
+<pre><font color="blue">7 3</font>
+4
+</pre>
+<p>1_2:</p>
+<pre><font color="blue">5 2</font>
+3
+</pre>
+<p>1_3:</p>
+<pre><font color="blue">1 6</font>
+1
+</pre>
+<p>1_4:</p>
+<pre><font color="blue">2 5</font>
+2
+</pre>
+<p>1_5:</p>
+<pre><font color="blue">100 5</font>
+47
+</pre>
+<p>1_6:</p>
+<pre><font color="blue">1000 8</font>
+185
+</pre>
+<p>1_7:</p>
+<pre><font color="blue">1200 23</font>
+473
+</pre>
+<p>1_8:</p>
+<pre><font color="blue">100000 9</font>
+42610
+</pre>
+<hr>
+<h1 class="mume-header" id="a-namep2a-problem-2-stl-log-analyzer"><a name="p2" href></a> Problem 2: STL - Log Analyzer</h1>
+
+<p>You are provided with a template program <code>2.cpp</code>. Complete the program and the program will read and process a web log data file from user input (<code>cin</code>). The program will then print out the 5 most popular pages, and the 5 most active users and the corresponding pages they have visited.</p>
+<p>The log file consists of records of three types, each record occupies exactly one line. Here is the format of these three types of record:</p>
+<p><strong>Page record</strong>: <code>PAGE &lt;page id&gt; &lt;page url&gt;</code><br>
+<strong>User record</strong>: <code>USER &lt;user id&gt;</code><br>
+<strong>Visiting record</strong>: <code>VISIT &lt;page id&gt;</code></p>
+<p>A <strong>page</strong> record represents a page on the web server. A <strong>user</strong> record represents a user that accesses the system. A <strong>visiting</strong> record represents a visit by the user indicated by the most recent user record. Here is a sample data file:</p>
+<pre>PAGE 1288 /library
+PAGE 1282 /home
+USER 20686
+VISIT 1288
+VISIT 1282
+USER 20687
+VISIT 1288
+</pre>
+<p>In this case, we have 2 pages (<code>/library</code> and <code>/home</code>) on the server. Two users have accessed the server, one (#20686) visiting 2 pages (<code>/library</code> and <code>/home</code>) and the other (#20687) visiting 1 page (<code>/library</code>).</p>
+<p>You can assume the followings regarding the data file:</p>
+<ul>
+<li>The data file always consists of the three types of records only</li>
+<li>The page ids are unique across all PAGE records</li>
+<li>The user ids are unique across all USER records</li>
+<li>The page ids are unique across all VISIT records of a user</li>
+<li>VISIT records will only appear after the first USER record</li>
+<li>The page id in a VISIT record appears only after its corresponding PAGE record</li>
+<li>There will be at least 5 users and 5 pages</li>
+</ul>
+<p>The followings have been implemented for you:</p>
+<ul>
+<li>A <code>Page</code> structure, each <code>Page</code> object consists of the id, path and a counter to count the number times it is being visited</li>
+</ul>
+<pre>struct Page {
+    int id;
+    string path;
+    int counter;
+    Page(int id, string path) {
+        this-&gt;id = id;
+        this-&gt;path = path;
+        counter = 0;
+    };
+};
+</pre>
+<ul>
+<li>A STL vector for organizing the <code>Page</code> objects</li>
+</ul>
+<pre>vector&lt;Page&gt; pages;
+</pre>
+<ul>
+<li>A <code>User</code> structure, each <code>User</code> object consists of the id and the pages the user visited</li>
+</ul>
+<pre>struct User {
+    int id;
+    vector&lt;string&gt; visits;
+    User(int id) {
+        this-&gt;id = id;
+    };
+    void add_visit(int page_id) {
+        ...
+    };
+    int size() const {
+        return visits.size();
+    };
+    void print_visits() {
+        ...
+    }
+};
+</pre>
+<ul>
+<li>A STL vector for organizing the <code>User</code> objects</li>
+</ul>
+<pre>vector&lt;User&gt; users;
+</pre>
+<ul>
+<li>A function to overload <code>&lt;</code> operator for the comparison of 2 pages based on their ids</li>
+</ul>
+<pre>bool operator&lt;(const Page &amp; a, const Page &amp; b) {
+    return (a.id &lt; b.id);
+};
+</pre>
+<p>You are required to complete the missing functions in the template program to make it work.<br>
+<em>Note</em>: The functions <code>Page()</code> and <code>User()</code> in the structs <code>Page</code> and <code>User</code> above are called <strong>struct constructors</strong>.  Refer to Module 10 &quot;C Programming (Part 3)&quot; for the discussion on the struct constructor functions.  It works the same in C++.</p>
+<h2 class="mume-header" id="sample-test-cases-1">Sample Test Cases</h2>
+
+<p>You are provided with 4 sample test cases.  We will use the first test case and detail the test run below.</p>
+<p>Assume we have <code>input2_1.txt</code> in the current directory. If we run the program like this (assuming that we are working on Linux):</p>
+<pre>$ g++ -pedantic-errors -std=c++11 2.cpp -o 2
+$ ./2 &lt; input2_1.txt
+</pre>
+<p>The program will print:</p>
+<pre>*** 5 most popular pages ***
+36:/msdownload
+32:/ie
+17:/products
+17:/search
+13:/sitebuilder
+*** 5 most active users ***
+23:10068
+- /activeplatform
+- /activex
+- /automap
+- /frontpage
+- /gallery
+- /ie
+- /intdev
+- /isapi
+- /java
+- /msdownload
+- /musicproducer
+- /office
+- /promo
+- /sbnmember
+- /search
+- /sitebuilder
+- /spain
+- /vbasic
+<font color="lightgrey"><i>...
+[snipped]
+...</i></font>
+11:10019
+- /athome
+- /clipgallerylive
+- /games
+- /isapi
+- /kb
+- /logostore
+- /msdownload
+- /msoffice
+- /ntserver
+- /products
+- /search
+</pre>
+<p><strong>Note:</strong></p>
+<ul>
+<li>If two pages are equally popular, the pages are ordered lexicographically.</li>
+<li>If two users visit the same number of pages, the users are ordered by their id ascendingly.</li>
+<li>The list of pages a user visit must be printed in ascending order.</li>
+<li>You can choose not to use the provided template program and implement in your own way. However, your program must contain the provided Page and User structures and use STL vectors for storage.</li>
+<li>Once again, you MUST use STL vectors in your program. Your program will be checked and your score will be 0 if we find that you use traditional arrays to store pages and users in your implementation.</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
